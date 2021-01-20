@@ -3,18 +3,15 @@
         <div class="container flex flex-center flex-col">
             <h1 class="title my-2">Tierlist Generator</h1>
             <div class="img-container">
-                <div class="view-source">
+                <!-- <div class="view-source">
                     <p>View Source</p>
-                </div>
-                <a
-                    href="https://twitter.com/tabisumika/status/1350754761662885888/photo/1"
+                </div> -->
+                <!-- <a
+                    href="#"
                     target="__blank"
-                >
-                    <img
-                        src="https://pbs.twimg.com/media/Er7YOZTVEAUAr0_?format=jpg&name=medium"
-                        alt="art"
-                    />
-                </a>
+                > -->
+                <img src="../assets/example.png" alt="art" />
+                <!-- </a> -->
             </div>
 
             <div class="search my-2">
