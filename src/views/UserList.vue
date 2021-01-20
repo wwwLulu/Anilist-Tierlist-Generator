@@ -21,7 +21,11 @@
                         :key="anime.mediaId"
                         class="tier__entry"
                     >
-                        <a :href="'https://anilist.co/anime/' + anime.mediaId">
+                        <a
+                            :href="
+                                `https://anilist.co/${type}/` + anime.mediaId
+                            "
+                        >
                             <div class="tier__entry__overlay">
                                 {{ anime.media.title.userPreferred }}
                             </div>
