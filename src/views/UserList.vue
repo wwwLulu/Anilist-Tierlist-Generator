@@ -1,6 +1,7 @@
 <template>
     <div class="wrapper screen-container">
         <header>
+            <i @click="navigateToHomepage" class="material-icons">home</i>
             <a :href="`https://anilist.co/user/` + userName">
                 <div class="user">
                     <img :src="userAvatar" alt="avatar" class="user__avatar" />
@@ -251,6 +252,9 @@ export default {
         }
     },
     methods: {
+        navigateToHomepage() {
+            this.$router.push('/')
+        },
         /**
          * @param {AnimeList[{}]} animeList
          */
@@ -370,6 +374,15 @@ export default {
     position: relative;
     max-width: 140rem;
     margin: 0 auto;
+}
+
+i {
+    cursor: pointer;
+    z-index: 1400;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    color: white;
 }
 
 .tier {
