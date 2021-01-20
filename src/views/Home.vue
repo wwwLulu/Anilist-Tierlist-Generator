@@ -18,10 +18,8 @@
             </div>
 
             <div class="search my-2">
-                <i
-                    @click="navigateToList"
-                    class="fas fa-search search__icon"
-                ></i>
+                <i @click="navigateToList" class="material-icons">search</i>
+
                 <input
                     v-model="userName"
                     @keyup.enter="navigateToList"
@@ -29,6 +27,22 @@
                     class="search__bar"
                     placeholder="Anilist username"
                 />
+            </div>
+            <div class="buttons">
+                <button
+                    class="anime-btn"
+                    @click="navigateToList, (type = 'anime')"
+                    ref="anime"
+                >
+                    Anime
+                </button>
+                <button
+                    class="manga-btn"
+                    @click="navigateToList, (type = 'manga')"
+                    ref="manga"
+                >
+                    Manga
+                </button>
             </div>
         </div>
     </div>
@@ -40,17 +54,57 @@ export default {
     data() {
         return {
             userName: '',
+            type: 'anime',
         }
+    },
+    watch: {
+        type(value) {
+            if (value == 'anime') {
+                this.$refs.anime.style.backgroundColor = 'green'
+                this.$refs.manga.style.backgroundColor = '#333'
+            } else {
+                this.$refs.manga.style.backgroundColor = 'green'
+                this.$refs.anime.style.backgroundColor = '#333'
+            }
+        },
     },
     methods: {
         navigateToList() {
-            this.$router.push(`/user/${this.userName}`)
+            this.$router.push(`/${this.type}/${this.userName}`)
         },
     },
 }
 </script>
 
 <style lang="scss" scoped>
+button {
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    background: #333;
+    color: white;
+    margin: 0 0.5rem;
+}
+
+.buttons {
+    align-self: flex-start;
+}
+
+.anime-btn {
+    background: green;
+}
+
+.manga-btn {
+    background: #333;
+}
+
+i {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.75rem;
+    cursor: pointer;
+}
+
 .homepage {
     margin-top: -5rem;
 }
@@ -71,6 +125,7 @@ export default {
     .view-source {
         position: absolute;
         width: 30%;
+        // filter: blur(1px);
         height: 100%;
         right: -100%;
         background: rgba(0, 0, 0, 0.2);
@@ -86,13 +141,14 @@ export default {
     letter-spacing: 0.3rem;
     font-family: 'Righteous', cursive;
     font-size: 3rem;
-    color: white;
+    color: #333;
     @media (max-width: 450px) {
         font-size: 2.5rem;
     }
 }
 
 .search {
+    position: relative;
     height: 4rem;
     display: flex;
     flex-direction: row;
@@ -105,7 +161,7 @@ export default {
         align-items: center;
         padding: 0.5rem;
         height: 100%;
-        background: #a6dfe7;
+        background: #10002b;
         color: white;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
             0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -116,7 +172,8 @@ export default {
         font-weight: 200;
         color: rgba(0, 0, 0, 0.8);
         padding: 0;
-        width: 45rem;
+        // width: 45rem;
+        width: 100%;
         height: 100%;
         font-size: 2rem;
         border: none;

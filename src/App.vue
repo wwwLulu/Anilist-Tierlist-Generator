@@ -6,6 +6,11 @@
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+:root {
+    --bg-primary: #f3f3f3;
+    --bg-secondary: rgba(0, 0, 0, 0);
+}
+
 html {
     font-size: 62.5%;
     @media (max-width: 500px) {
@@ -19,12 +24,23 @@ html {
     }
 }
 body {
-    background-color: #62a2b0;
+    background-color: var(--bg-primary);
+    position: relative;
+    display: flex;
+    background: var(--bg-primary);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
+}
+
+.wrapper {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 // Utitility classes
@@ -72,5 +88,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    margin: 0 auto;
 }
 </style>
