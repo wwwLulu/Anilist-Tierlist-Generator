@@ -251,6 +251,11 @@ export default {
             ],
         }
     },
+    watch: {
+        $route() {
+            window.location.reload(false)
+        },
+    },
     methods: {
         navigateToHomepage() {
             this.$router.push('/')
