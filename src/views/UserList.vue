@@ -248,6 +248,48 @@ export default {
                     }
                 }
             `,
+                `
+                query($name: String) {
+                    MediaListCollection(userName: $name, type: ANIME, status: DROPPED) {
+                        lists {
+                            entries {
+                                mediaId
+                                score(format: POINT_10_DECIMAL)
+                                media {
+                                    coverImage {
+                                        medium
+                                        large
+                                    }
+                                    title {
+                                        userPreferred
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            `,
+                `
+                query($name: String) {
+                    MediaListCollection(userName: $name, type: ANIME, status: CURRENT) {
+                        lists {
+                            entries {
+                                mediaId
+                                score(format: POINT_10_DECIMAL)
+                                media {
+                                    coverImage {
+                                        medium
+                                        large
+                                    }
+                                    title {
+                                        userPreferred
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            `,
             ],
         }
     },

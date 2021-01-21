@@ -57,10 +57,10 @@ export default {
     watch: {
         type(value) {
             if (value == 'anime') {
-                this.$refs.anime.style.backgroundColor = 'green'
+                this.$refs.anime.style.backgroundColor = '#7b2cbf'
                 this.$refs.manga.style.backgroundColor = '#333'
             } else {
-                this.$refs.manga.style.backgroundColor = 'green'
+                this.$refs.manga.style.backgroundColor = '#7b2cbf'
                 this.$refs.anime.style.backgroundColor = '#333'
             }
         },
@@ -88,7 +88,7 @@ button {
 }
 
 .anime-btn {
-    background: green;
+    background: #7b2cbf;
 }
 
 .manga-btn {
