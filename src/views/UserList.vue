@@ -176,6 +176,27 @@
 export default {
     props: ['userName', 'type'],
     mounted() {
+        if (this.$route.query['SS']) {
+            this.rankings.SS = this.$route.query['SS']
+        }
+        if (this.$route.query['S']) {
+            this.rankings.S = this.$route.query['S']
+        }
+        if (this.$route.query['A']) {
+            this.rankings.A = this.$route.query['A']
+        }
+        if (this.$route.query['B']) {
+            this.rankings.B = this.$route.query['B']
+        }
+        if (this.$route.query['C']) {
+            this.rankings.C = this.$route.query['C']
+        }
+        if (this.$route.query['D']) {
+            this.rankings.D = this.$route.query['D']
+        }
+        if (this.$route.query['F']) {
+            this.rankings.F = this.$route.query['F']
+        }
         if (this.type.toLowerCase() == 'manga') {
             this.GetUserMangaListCompleted()
         } else {
@@ -185,6 +206,15 @@ export default {
     },
     data() {
         return {
+            rankings: {
+                SS: 10,
+                S: 9,
+                A: 8,
+                B: 7,
+                C: 5,
+                D: 3,
+                F: 1,
+            },
             userAvatar: '',
             userBanner: '',
             userList: [],
@@ -314,19 +344,19 @@ export default {
         createTierList(animeList) {
             animeList.forEach((entry) => {
                 let tier = ''
-                if (entry.score >= 10) {
+                if (entry.score >= this.rankings.SS) {
                     tier = 'SS'
-                } else if (entry.score >= 9) {
+                } else if (entry.score >= this.rankings.S) {
                     tier = 'S'
-                } else if (entry.score >= 8) {
+                } else if (entry.score >= this.rankings.A) {
                     tier = 'A'
-                } else if (entry.score >= 7) {
+                } else if (entry.score >= this.rankings.B) {
                     tier = 'B'
-                } else if (entry.score >= 5) {
+                } else if (entry.score >= this.rankings.C) {
                     tier = 'C'
-                } else if (entry.score >= 3) {
+                } else if (entry.score >= this.rankings.D) {
                     tier = 'D'
-                } else if (entry.score >= 1) {
+                } else if (entry.score >= this.rankings.F) {
                     tier = 'F'
                 } else if (entry.score >= 0) {
                     tier = 'Unranked'
