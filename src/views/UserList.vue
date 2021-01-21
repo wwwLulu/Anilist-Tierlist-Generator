@@ -302,6 +302,9 @@ export default {
         },
     },
     methods: {
+        sortTierList(animeList) {
+            animeList.sort((a, b) => a.score < b.score)
+        },
         navigateToHomepage() {
             this.$router.push('/')
         },
@@ -350,6 +353,7 @@ export default {
             const res = await fetch(url, options)
             const data = await res.json()
             this.userList = data.data.MediaListCollection.lists[0].entries
+            this.sortTierList(this.userList)
             this.createTierList(this.userList)
         },
         async GetUserMangaListCompleted() {
