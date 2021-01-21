@@ -278,7 +278,7 @@ export default {
                     tier = 'C'
                 } else if (entry.score >= 4) {
                     tier = 'D'
-                } else if (entry.score >= 1) {
+                } else if (entry.score >= 2) {
                     tier = 'F'
                 } else if (entry.score >= 0) {
                     tier = 'Unranked'
