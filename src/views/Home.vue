@@ -107,7 +107,6 @@ i {
 }
 
 .img-container {
-    cursor: pointer;
     overflow: hidden;
     position: relative;
     max-width: 50rem;
@@ -122,7 +121,6 @@ i {
     .view-source {
         position: absolute;
         width: 30%;
-        // filter: blur(1px);
         height: 100%;
         right: -100%;
         background: rgba(0, 0, 0, 0.2);
@@ -136,7 +134,6 @@ i {
 .title {
     align-self: flex-start;
     letter-spacing: 0.3rem;
-    font-family: 'Righteous', cursive;
     font-size: 3rem;
     color: #333;
     @media (max-width: 450px) {
