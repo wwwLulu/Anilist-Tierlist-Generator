@@ -1,7 +1,10 @@
 <template>
     <div class="wrapper screen-container">
         <header>
-            <i @click="navigateToHomepage" class="material-icons">home</i>
+            <i @click="navigateToHomepage" class="material-icons settings"
+                >settings</i
+            >
+            <i @click="navigateToHomepage" class="material-icons home">home</i>
             <a :href="`https://anilist.co/user/` + userName">
                 <div class="user">
                     <img :src="userAvatar" alt="avatar" class="user__avatar" />
@@ -316,11 +319,11 @@ export default {
                     tier = 'A'
                 } else if (entry.score >= 7) {
                     tier = 'B'
-                } else if (entry.score >= 6) {
+                } else if (entry.score >= 5) {
                     tier = 'C'
-                } else if (entry.score >= 4) {
+                } else if (entry.score >= 3) {
                     tier = 'D'
-                } else if (entry.score >= 2) {
+                } else if (entry.score >= 1) {
                     tier = 'F'
                 } else if (entry.score >= 0) {
                     tier = 'Unranked'
@@ -426,10 +429,25 @@ export default {
 i {
     cursor: pointer;
     z-index: 1400;
+    color: white;
+}
+
+.home {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
-    color: white;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.settings {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .tier {
