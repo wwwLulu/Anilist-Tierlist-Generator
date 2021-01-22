@@ -8,6 +8,9 @@
                     name="SS"
                     type="number"
                     :placeholder="rankings['SS']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <div class="tier-setting">
@@ -17,6 +20,9 @@
                     name="S"
                     type="number"
                     :placeholder="rankings['S']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <div class="tier-setting">
@@ -26,6 +32,9 @@
                     name="A"
                     type="number"
                     :placeholder="rankings['A']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <div class="tier-setting">
@@ -35,6 +44,9 @@
                     name="B"
                     type="number"
                     :placeholder="rankings['B']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <div class="tier-setting">
@@ -44,6 +56,8 @@
                     name="C"
                     type="number"
                     :placeholder="rankings['C']"
+                    min="1"
+                    max="10"
                 />
             </div>
             <div class="tier-setting">
@@ -53,6 +67,9 @@
                     name="D"
                     type="number"
                     :placeholder="rankings['D']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <div class="tier-setting">
@@ -62,6 +79,9 @@
                     name="F"
                     type="number"
                     :placeholder="rankings['F']"
+                    min="1"
+                    max="10"
+                    step=".5"
                 />
             </div>
             <button @click="changeQuery(), toggleSettingsModal()">Done</button>
