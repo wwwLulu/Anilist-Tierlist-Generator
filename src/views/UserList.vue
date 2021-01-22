@@ -1,8 +1,83 @@
 <template>
     <div class="wrapper screen-container">
+        <div v-show="settingsMode" class="settings-modal">
+            <div class="tier-setting">
+                <label for="SS">SS</label>
+                <input
+                    v-model="rankings['SS']"
+                    name="SS"
+                    type="number"
+                    :placeholder="rankings['SS']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="S">S</label>
+                <input
+                    v-model="rankings['S']"
+                    name="S"
+                    type="number"
+                    :placeholder="rankings['S']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="A">A</label>
+                <input
+                    v-model="rankings['A']"
+                    name="A"
+                    type="number"
+                    :placeholder="rankings['A']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="B">B</label>
+                <input
+                    v-model="rankings['B']"
+                    name="B"
+                    type="number"
+                    :placeholder="rankings['B']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="C">C</label>
+                <input
+                    v-model="rankings['C']"
+                    name="C"
+                    type="number"
+                    :placeholder="rankings['C']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="D">D</label>
+                <input
+                    v-model="rankings['D']"
+                    name="D"
+                    type="number"
+                    :placeholder="rankings['D']"
+                />
+            </div>
+            <div class="tier-setting">
+                <label for="F">F</label>
+                <input
+                    v-model="rankings['F']"
+                    name="F"
+                    type="number"
+                    :placeholder="rankings['F']"
+                />
+            </div>
+            <button @click="changeQuery(), toggleSettingsModal()">Done</button>
+        </div>
         <header>
-            <i @click="navigateToHomepage" class="material-icons settings"
+            <i
+                v-show="!settingsMode"
+                @click="toggleSettingsModal"
+                class="material-icons settings"
                 >settings</i
+            >
+            <i
+                v-show="settingsMode"
+                @click="toggleSettingsModal"
+                class="material-icons settings"
+                >close</i
             >
             <i @click="navigateToHomepage" class="material-icons home">home</i>
             <a :href="`https://anilist.co/user/` + userName">
@@ -176,36 +251,11 @@
 export default {
     props: ['userName', 'type'],
     mounted() {
-        if (this.$route.query['SS']) {
-            this.rankings.SS = this.$route.query['SS']
-        }
-        if (this.$route.query['S']) {
-            this.rankings.S = this.$route.query['S']
-        }
-        if (this.$route.query['A']) {
-            this.rankings.A = this.$route.query['A']
-        }
-        if (this.$route.query['B']) {
-            this.rankings.B = this.$route.query['B']
-        }
-        if (this.$route.query['C']) {
-            this.rankings.C = this.$route.query['C']
-        }
-        if (this.$route.query['D']) {
-            this.rankings.D = this.$route.query['D']
-        }
-        if (this.$route.query['F']) {
-            this.rankings.F = this.$route.query['F']
-        }
-        if (this.type.toLowerCase() == 'manga') {
-            this.GetUserMangaListCompleted()
-        } else {
-            this.GetUserAnimeListCompleted()
-        }
-        this.GetUserProfile()
+        this.getUserData()
     },
     data() {
         return {
+            settingsMode: false,
             rankings: {
                 SS: 10,
                 S: 9,
@@ -332,6 +382,45 @@ export default {
         },
     },
     methods: {
+        changeQuery() {
+            this.$router.push(
+                `/anime/${this.userName}/?SS=${this.rankings['SS']}&S=${this.rankings['S']}&A=${this.rankings['A']}&B=${this.rankings['B']}&C=${this.rankings['C']}&D=${this.rankings['D']}&F=${this.rankings['F']}`
+            )
+        },
+        getUserData() {
+            if (this.$route.query['SS']) {
+                this.rankings.SS = this.$route.query['SS']
+            }
+            if (this.$route.query['S']) {
+                this.rankings.S = this.$route.query['S']
+            }
+            if (this.$route.query['A']) {
+                this.rankings.A = this.$route.query['A']
+            }
+
+            if (this.$route.query['B']) {
+                this.rankings.B = this.$route.query['B']
+            }
+            if (this.$route.query['C']) {
+                this.rankings.C = this.$route.query['C']
+            }
+            if (this.$route.query['D']) {
+                this.rankings.D = this.$route.query['D']
+            }
+            if (this.$route.query['F']) {
+                this.rankings.F = this.$route.query['F']
+            }
+            if (this.type.toLowerCase() == 'manga') {
+                this.GetUserMangaListCompleted()
+            } else {
+                this.GetUserAnimeListCompleted()
+            }
+            this.GetUserProfile()
+        },
+        toggleSettingsModal() {
+            this.settingsMode = !this.settingsMode
+        },
+
         sortTierList(animeList) {
             animeList.sort((a, b) => a.score < b.score)
         },
@@ -454,6 +543,25 @@ export default {
 .F {
     background: #10002b;
 }
+
+.settings-modal {
+    border: dotted rgba(0, 0, 0, 0.5) 0.1rem;
+    border-top: none;
+    padding: 0.5rem;
+    z-index: 4000;
+    background: #f3f3f3;
+    position: absolute;
+    top: 10rem;
+    right: 0;
+    width: 20rem;
+    input {
+        margin-left: 0.5rem;
+    }
+    button {
+        margin-top: 0.5rem;
+    }
+}
+
 .wrapper {
     position: relative;
     max-width: 140rem;
