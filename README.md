@@ -1,6 +1,6 @@
 # AnimeTierList
 <a href='https://anitier.com'>Live Demo</a>
-<img src='https://ibb.co/hLLcYWq>'>
+<img src='https://i.ibb.co/fqq9Dpc/Screen-Shot-2021-02-18-at-1-06-59-AM.png'>
 
 ## Project setup
 ```
