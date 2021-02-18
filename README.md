@@ -1,4 +1,6 @@
-# tierlist
+# AnimeTierList
+<a href='https://anitier.com'>Live Demo</a>
+<img src='https://ibb.co/hLLcYWq>'>
 
 ## Project setup
 ```
