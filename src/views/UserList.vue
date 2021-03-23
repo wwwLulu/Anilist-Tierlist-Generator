@@ -584,7 +584,7 @@ export default {
 
 .wrapper {
     position: relative;
-    max-width: 140rem;
+    // max-width: 140rem;
     margin: 0 auto;
 }
 
@@ -596,7 +596,7 @@ i {
 
 .home {
     position: absolute;
-    right: 1rem;
+    right: 2rem;
     bottom: 1rem;
     &:hover {
         opacity: 0.8;
@@ -605,7 +605,7 @@ i {
 
 .settings {
     position: absolute;
-    right: 1rem;
+    right: 2rem;
     top: 1rem;
     &:hover {
         opacity: 0.8;
@@ -619,7 +619,7 @@ i {
         font-weight: bold;
         width: 12rem;
         margin-right: 1rem;
-        margin: 0.5rem 0;
+        margin: 0.1rem 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -632,14 +632,16 @@ i {
         flex-wrap: wrap;
         justify-content: flex-start;
         @media (max-width: 600px) {
-            justify-content: space-around;
+            * {
+                flex-grow: 1;
+            }
         }
     }
     &__entry {
         position: relative;
-        width: 12rem;
-        height: 15rem;
-        margin: 0.5rem;
+        max-width: 12rem;
+        max-height: 15rem;
+        margin: 0.1rem;
         img {
             width: 100%;
             height: 100%;
